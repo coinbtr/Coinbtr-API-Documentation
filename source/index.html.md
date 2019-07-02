@@ -353,10 +353,13 @@ This API call is used to withdraw MXN to a given CLABE.
 ### Body Parameters
 | Parameter | Type | Required | Coins | Description |
 |---|---|---|---|---|
-| coin | String | Yes | MXN | Fiat coin symbol. Currently `MXN` is only supported |
-| clabe | String | Yes | MXN | 18 digits recipient's CLABE (*Clave Bancaria Estandarizada*). |
+| coin | String | Yes | MXN | Fiat coin symbol. Currently `MXN` is only supported. |
+| account_type | String | No | MXN | Account type: `clabe`, `debit_card` or `phone_number`. Default is `clabe`.|
+| account | String | Yes | MXN | 18 digits CLABE, 16 digits debit card or 10 digits phone number. Depending on `account_type`|
 | amount | Float | Yes | MXN | Amount to send. |
 | recipient | String | Yes | MXN | Recipient's full name. |
+| numeric_ref | Integer | No | MXN | Numeric reference attached to the transaction. |
+| text_ref | String | No | MXN | Text reference attached to the transaction. |
 
 ## List Balances
 ```shell
