@@ -327,15 +327,16 @@ Funds are transferred instantly with 0 commission fee.
 ## Mexican Pesos Withdraw (SPEI)
 ```shell
 COINBTR_API_KEY="your_api_key"
-CLABE="002123456789012345"
+ACCOUNT="002123456789012345" # It can be CLABE, Debit Card Number or Phone Number
+ACCOUNT_TYPE="clabe" # Default is "clabe". It can be "debit_card" o "phone_number"
 RECIPIENT="RAMON SANCHEZ CRUZ"
 COIN="mxn"
-AMOUNT="100" # 100 MXN
+AMOUNT="1000" # 1000 MXN
 
 curl -X POST "https://api.coinbtr.com/api/v1/data/transfer/" \
 -H "Content-Type: application/json" \
 -H "Authorization: Token $COINBTR_API_KEY" \
--d "{\"coin\": \"$COIN\", \"clabe\": \"$CLABE\", \"amount\": \"$AMOUNT\", \"recipient\": \"$RECIPIENT\"}"
+-d "{\"coin\": \"$COIN\", \"account\": \"$ACCOUNT\", \"amount\": \"$AMOUNT\", \"account_type\": \"$ACCOUNT_TYPE\", \"recipient\": \"$RECIPIENT\"}"
 ```
 > The API response will look like this:
 
